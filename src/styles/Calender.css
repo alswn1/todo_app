@@ -1,0 +1,81 @@
+.wrapper {
+    font-size: 1.5rem;
+}
+
+.cal-top {
+    display: inline-flex;
+    gap: 30px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.cal-btn {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: none;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.cal-mon {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.cal-week {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5vh;
+    margin-top: 2vh;
+
+}
+
+.cal-day {
+    font-size: 1.25rem;
+    font-weight: bolder;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cal-date {
+    background-color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: #000;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cal-date:hover {
+    background-color: #FFA3A3;
+}
+
+.cal-week .gray:hover {
+    color: #000;
+}
+
+.red {
+    color: red;
+}
+
+.blue {
+    color: blue;
+}
+
+.gray {
+    color: #C1C1C1;
+}

@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.nav {
+  margin-top: 50px;
+  height: 100px;
+}
+
+.login {
+  display: inline-flex;
+  gap: 40px;
+  float: right;
+  margin-right: 20vh;
+}
