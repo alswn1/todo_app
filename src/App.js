@@ -44,11 +44,11 @@ function App() {
   return (
     <BrowserRouter>
       <div className='App'>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Calender />} />
-          <Route path="/DateDetails" element={<DateDetails />} />
-        </Routes>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Calender />} />
+            <Route path="/DateDetails" element={<DateDetails />} />
+          </Routes>
       </div>
     </BrowserRouter>
   );

@@ -17,6 +17,7 @@
     font-weight: bolder;
     font-size: 1.5rem;
     text-align: center;
+    cursor: pointer;
 }
 
 .cal-mon {
@@ -78,4 +79,8 @@
 
 .gray {
     color: #C1C1C1;
+}
+
+.selected {
+    background-color: #FFA3A3;
 }
