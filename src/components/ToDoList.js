@@ -7,7 +7,7 @@ function ToDoList({ todos, onToggle }) {
         <div className="list-arr">
             <ul>
                 {todos.map((todo) => (
-                    <ToDoListItem todo={todo} key={todo.id} onToggle={onToggle} />
+                    <ToDoListItem todo={todo} key={todo._id} onToggle={onToggle} />
                 ))}
             </ul>
         </div>

@@ -37,17 +37,17 @@ function ToDoTemplate() {
     }, [selDate]);
 
     // onToggle 함수 : isChecked 값을 반전시키는 함수
-    const onToggle = (id) => {
-        const todoToUpdate = todos.find(todo => todo.id === id);
+    const onToggle = (_id) => {
+        const todoToUpdate = todos.find(todo => todo._id === _id);
         if (todoToUpdate) {
             const updatedTodo = {
                 ...todoToUpdate,
                 isChecked: !(todoToUpdate.isChecked),
             };
 
-            axios.put(`http://localhost:5000/todos/${id}`, updatedTodo)
+            axios.put(`http://localhost:5000/todos/${_id}`, updatedTodo)
                 .then(res => {
-                    setTodos(todos.map(todo => todo.id === id ? res.data : todo));
+                    setTodos(todos.map(todo => todo._id === _id ? res.data : todo));
                 })
                 .catch(err => {
                     console.error("There was an error updating the todo: ", err);

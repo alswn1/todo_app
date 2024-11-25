@@ -3,11 +3,11 @@ import { MdCheckBox , MdCheckBoxOutlineBlank, MdEdit, MdRemoveCircleOutline } fr
 import '../styles/ToDoListItem.css';
 
 function ToDoListItem({ todo, onToggle }) {
-    const { id, userId, content, isChecked, date } = todo;
+    const { _id, userId, content, isChecked, date } = todo;
 
     return (
         <li className={!isChecked ? "list-item checked" : "list-item"}>
-            <div className="item-inside" onClick={() => onToggle(id)}>
+            <div className="item-inside" onClick={() => onToggle(_id)}>
                 {isChecked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
                 <div className="item-text">{content}</div>
             </div>

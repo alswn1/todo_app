@@ -15,7 +15,6 @@ app.use(cors());
 
 // TODO 모델
 const todoSchema = new mongoose.Schema({
-  id: { type: Number, required: true },
   userId: {type:String, required: true},
   content: { type: String, required: true },
   isChecked: { type: Boolean, required: true, default: true },
@@ -64,7 +63,7 @@ app.put('/todos/:id', async (req, res) => {
   const { userId, content, isChecked, date } = req.body;
 
   try {
-    const todo = await TODO.findOneAndUpdate({id: id}, { userId, content, isChecked, date }, { new: true });
+    const todo = await TODO.findOneAndUpdate(id, { userId, content, isChecked, date }, { new: true });
     if (!todo) {
       return res.status(404).json({ error: 'Todo not found' });
     }
