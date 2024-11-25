@@ -28,8 +28,10 @@ const TODO = mongoose.model('todos', todoSchema);
 
 // 1. **GET** 모든 TODO 항목 가져오기
 app.get('/todos', async (req, res) => {
+  const { date } = req.query;
+
   try {
-    const todos = await TODO.find();
+    const todos = await TODO.find({ date });
     res.json(todos);  // 클라이언트로 반환
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -62,7 +64,7 @@ app.put('/todos/:id', async (req, res) => {
   const { userId, content, isChecked, date } = req.body;
 
   try {
-    const todo = await TODO.findByIdAndUpdate(id, { userId, content, isChecked, date }, { new: true });
+    const todo = await TODO.findOneAndUpdate({id: id}, { userId, content, isChecked, date }, { new: true });
     if (!todo) {
       return res.status(404).json({ error: 'Todo not found' });
     }

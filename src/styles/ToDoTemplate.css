@@ -1,0 +1,24 @@
+.details-content {
+    flex: 3; /* 디테일 콘텐츠 영역 */
+    text-align: start;
+}
+
+.today {
+    font-size: 1.5rem;
+    font-weight: bolder;
+    margin-top: 15px;
+}
+
+.list {
+    height: 80%;
+}
+
+.list-title {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-top: 40px;
+}
+
+.list-body {
+    border: 1px solid #000;
+}

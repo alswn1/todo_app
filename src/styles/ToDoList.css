@@ -1,0 +1,14 @@
+.list-arr {
+    height: 350px;
+    overflow: auto;
+}
+
+ul {
+    padding: 0px;
+    padding-left: 7px;
+    padding-right: 7px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 430px;
+}

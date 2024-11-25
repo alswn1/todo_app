@@ -1,18 +1,22 @@
 .details-wrapper {
     display: flex;
+    width: 70%;
+    margin: 0 auto;
+    min-height: 700px;
+    margin-top: 50px;
 }
 
-.today {
-    font-size: 2rem;
-    font-weight: 500;
+.details-wrapper .cal-top {
+    margin-top: 20px !important;
+}
+
+.details-wrapper .cal-week {
+    gap: 3vh !important;
 }
 
 .small-cal {
     flex: 1; /* 작은 달력 영역 */
-    max-width: 500px; /* 달력 최대 너비 설정 */
-    transform: scale(0.6); /* 달력 크기 축소 */
-}
-
-.details-content {
-    flex: 3; /* 디테일 콘텐츠 영역 */
+    display: flex;
+    transform: scale(0.7); /* 달력 크기 축소 */
+    margin-top: -80px;
 }
