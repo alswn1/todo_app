@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
+import Calender from "./Calender";
 import ToDoInsert from "./ToDoInsert";
 import ToDoList from "./ToDoList";
 import '../styles/ToDoTemplate.css';
@@ -56,9 +57,15 @@ function ToDoTemplate() {
     };
 
     return (
-        <div className="details-content">
+        <>
+            <div className="left-container">
+                <div className="small-cal">
+                    <Calender seldate={date} />
+                </div>
+            </div>
+            <div className="details-content">
                 <div className="today">
-                    {selDate}
+                    {selDate.replace(/-/g, '/').replace(/\/([^\/]*)$/, ' $1')}
                 </div>
                 <div className="list">
                     <p className="list-title">My Schedule</p>
@@ -68,6 +75,7 @@ function ToDoTemplate() {
                     </div>
                 </div>
             </div>
+        </>
     )
 };
 

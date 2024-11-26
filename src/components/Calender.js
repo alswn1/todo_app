@@ -3,7 +3,7 @@ import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
 import DateDetails from "../pages/DateDetails";
 import '../styles/Calender.css';
 
-function Calender() {
+function Calender({ seldate }) {
     // 현재 날짜 상태와 주별로 분리된 날짜 배열 상태를 관리
     const [currentDate, setCurrentDate] = useState(new Date());
     const [weeks, setWeeks] = useState([]);
@@ -65,7 +65,7 @@ function Calender() {
     const handleNextMonth = () => {
         setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1));
     };
-
+    
     return (
             <div className="wrapper">
                 <div className="cal-top">
@@ -92,7 +92,7 @@ function Calender() {
                                         pathname: "/DateDetails",
                                     }}
                                     state={{ value: date.toString().substr(0, 15) }}
-                                    className={`cal-date ${currentDate.getMonth() !== date.getMonth() ? "gray" : ""}`}
+                                    className={`cal-date ${currentDate.getMonth() !== date.getMonth() ? "gray" : ""} ${seldate === date.toString().substr(0, 15) ? "selected" : ""}`}
                                     key={subIndex}
                                 >
                                     {date.getDate()}

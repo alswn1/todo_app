@@ -63,7 +63,11 @@ app.put('/todos/:id', async (req, res) => {
   const { userId, content, isChecked, date } = req.body;
 
   try {
-    const todo = await TODO.findOneAndUpdate(id, { userId, content, isChecked, date }, { new: true });
+    const todo = await TODO.findByIdAndUpdate(
+      id,
+      { userId, content, isChecked, date },
+      { new: true }
+    );
     if (!todo) {
       return res.status(404).json({ error: 'Todo not found' });
     }

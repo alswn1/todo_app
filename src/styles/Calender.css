@@ -84,3 +84,7 @@
 .selected {
     background-color: #FFA3A3;
 }
+
+.gray.selected {
+    color: #000;
+}
