@@ -33,7 +33,9 @@ function ToDoTemplate() {
     useEffect(() => {
         axios.get(`http://localhost:5000/todos?date=${selDate.slice(0, 10)}`)
         .then(res => {
-            setTodos(res.data); // 받은 데이터를 state에 저장
+            setTodos(res.data.sort((a, b) => {
+                return a.isChecked - b.isChecked;
+            })); // 받은 데이터를 state에 저장
         })
         .catch(err => {
             console.error("There was an error fetching the data : ", err);
@@ -51,7 +53,9 @@ function ToDoTemplate() {
 
             axios.put(`http://localhost:5000/todos/${_id}`, updatedTodo)
                 .then(res => {
-                    setTodos(todos.map(todo => todo._id === _id ? res.data : todo));
+                    setTodos(todos.map(todo => todo._id === _id ? res.data : todo).sort((a, b) => {
+                        return a.isChecked - b.isChecked;
+                    }));
                 })
                 .catch(err => {
                     console.error("There was an error updating the todo: ", err);
@@ -70,7 +74,9 @@ function ToDoTemplate() {
 
         axios.post(`http://localhost:5000/todos/`, todo)
             .then(res => {
-                setTodos([...todos, res.data]);
+                setTodos([...todos, res.data].sort((a, b) => {
+                    return a.isChecked - b.isChecked;
+                }));
             })
             .catch(err => {
                 console.error("There was an error inserting the todo: ", err);
@@ -91,6 +97,7 @@ function ToDoTemplate() {
         };
     };
 
+    // onUpdate 함수 : 저장된 todo를 수정하는 함수
     const onUpdate = (_id, content) => {
         const todoToUpdate = todos.find(todo => todo._id === _id);
         if (todoToUpdate) {
@@ -109,6 +116,7 @@ function ToDoTemplate() {
         };
     };
 
+    // 팝업창 열고 닫는 토글 함수
     const onInsertToggle = () => {
         if (selectedTodo) {
             setSelectedTodo(null);
@@ -116,6 +124,7 @@ function ToDoTemplate() {
         setInsertToggle((prev) => !prev);
     };
 
+    // 바꿀 todo를 selectedTodo에 상태 저장하는 함수
     const onChangeSelectedTodo = (todo) => {
         setSelectedTodo(todo);
     };
