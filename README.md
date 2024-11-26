@@ -8,7 +8,7 @@
   - 프로젝트 이름 : Schedule My Day
   - 개발기간 : 24.11.20 ~ 24.11.26
   - 기술스택
-      - Frontend : React & axios
+      - Frontend : React & Axios
       - Backend : Node.js & Express
       - Database : MongoDB
   - 개발자 : 권민주
