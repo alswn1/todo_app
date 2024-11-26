@@ -1,12 +1,10 @@
-# 추가하고자 하는 것들
-1. 달력
-2. 달력 날짜 클릭하면 해당 일자에 todo_list CRUD
-3. todo_list 저장할 데이터베이스
-4. todo_list 완료 못하면 일자에 색 표시
-5. todo_list 모두 완료하면 일자에 색 표시 삭제
-6. 다크모드
-   
+# TODO 일정 달력
+
+[ 메인 화면 ]
 ![image](https://github.com/user-attachments/assets/61adbd1f-cc08-424f-a27c-5433539511f2)
+
+![image](https://github.com/user-attachments/assets/b748ef0b-2248-43d4-8494-8ca5a99f89aa)
+![image](https://github.com/user-attachments/assets/72486479-c0be-40d2-9093-493808ddd166)
 
 
 
