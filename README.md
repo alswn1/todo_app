@@ -24,7 +24,7 @@
 <br><br>
 
 #### Todo 리스트 화면
-|![image](https://github.com/user-attachments/assets/7c99c2ce-2818-4445-9b08-3041b264c950)|![image](https://github.com/user-attachments/assets/e4ddbc3f-8d90-425a-9dac-2fa983e62f79)|
+|![image](https://github.com/user-attachments/assets/d7de9921-e143-4981-95d5-fae508d71366)|![image](https://github.com/user-attachments/assets/e4ddbc3f-8d90-425a-9dac-2fa983e62f79)|
 |:---:|:---:|
 |todo 리스트 화면|수정하기 팝업창|
 
@@ -37,4 +37,3 @@
 - 일정을 수정하고 싶지 않다면 일정을 수정하지 않은 상태로 [수정하기] 버튼을 누르면 된다.
 
 <br><br>
-
