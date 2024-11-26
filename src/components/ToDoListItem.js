@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { MdCheckBox , MdCheckBoxOutlineBlank, MdEdit, MdRemoveCircleOutline } from "react-icons/md";
 import '../styles/ToDoListItem.css';
 
-function ToDoListItem({ todo, onToggle }) {
+function ToDoListItem({ todo, onToggle, onRemove, onInsertToggle, onChangeSelectedTodo }) {
     const { _id, userId, content, isChecked, date } = todo;
 
     return (
@@ -12,8 +12,15 @@ function ToDoListItem({ todo, onToggle }) {
                 <div className="item-text">{content}</div>
             </div>
             <div className="item-inside">
-                <MdEdit />
-                <MdRemoveCircleOutline />
+                <div onClick={() => {
+                    onChangeSelectedTodo(todo)
+                    onInsertToggle();
+                }}>
+                    <MdEdit />
+                </div>
+                <div onClick={() => onRemove(_id)}>
+                    <MdRemoveCircleOutline />
+                </div>
             </div>
         </li>
     )

@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import Calender from "./Calender";
 import ToDoInsert from "./ToDoInsert";
 import ToDoList from "./ToDoList";
+import ToDoEdit from "./ToDoEdit";
 import '../styles/ToDoTemplate.css';
 
 function ToDoTemplate() {
@@ -16,7 +17,7 @@ function ToDoTemplate() {
         const year = dateObj.getFullYear(); // 연도
         const month = String(dateObj.getMonth() + 1).padStart(2, "0"); // 월 (2자리로)
         const day = String(dateObj.getDate()).padStart(2, "0"); // 일 (2자리로)
-        const dayName = dateObj.toLocaleDateString("en-US", { weekday: "short" }) // 요일
+        const dayName = new Intl.DateTimeFormat("en-US", { weekday: "short" }).format(dateObj); // 요일
         return `${year}-${month}-${day}-${dayName}`; // 2024-11-03-Sun 형식
     }
 
@@ -25,6 +26,8 @@ function ToDoTemplate() {
 
     const [todos, setTodos] = useState([]);
     const [newTodo, setNewTodo] = useState(''); // 새로운 TODO 입력을 위한 state
+    const [insertToggle, setInsertToggle] = useState(false); // true면 edit 화면 노출
+    const [selectedTodo, setSelectedTodo] = useState(null); // 클릭한 todo 항목
 
     // GET 요청 - 컴포넌트가 마운트될 때 호출
     useEffect(() => {
@@ -56,7 +59,7 @@ function ToDoTemplate() {
         }
     };
 
-    // onInsert 함수 : 일정을 추가시키는 함수
+    // onInsert 함수 : todo 추가시키는 함수
     const onInsert = (content) => {
         const todo = {
             userId:"alswn5790",
@@ -74,6 +77,49 @@ function ToDoTemplate() {
             });
     };
 
+    // onRemove 함수 : todo 삭제하는 함수
+    const onRemove = (_id) => {
+        const removeTodo = todos.find(todo => todo._id === _id);
+        if (removeTodo) {
+            axios.delete(`http://localhost:5000/todos/${_id}`)
+                .then(res => {
+                    setTodos(todos.filter(todo => todo._id !== _id));
+                })
+                .catch(err => {
+                    console.error("There was an error removing the todo: ", err);
+                });
+        };
+    };
+
+    const onUpdate = (_id, content) => {
+        const todoToUpdate = todos.find(todo => todo._id === _id);
+        if (todoToUpdate) {
+            const updatedTodo = {
+                ...todoToUpdate,
+                content: content,
+            };
+
+            axios.put(`http://localhost:5000/todos/${_id}`, updatedTodo)
+                .then(res => {
+                    setTodos(todos.map(todo => todo._id === _id ? res.data : todo));
+                })
+                .catch(err => {
+                    console.error("There was an error momdifying the todo: ", err);
+                });
+        };
+    };
+
+    const onInsertToggle = () => {
+        if (selectedTodo) {
+            setSelectedTodo(null);
+        }
+        setInsertToggle((prev) => !prev);
+    };
+
+    const onChangeSelectedTodo = (todo) => {
+        setSelectedTodo(todo);
+    };
+
     return (
         <>
             <div className="left-container">
@@ -89,9 +135,10 @@ function ToDoTemplate() {
                     <p className="list-title">My Schedule</p>
                     <div className="list-body">
                         <ToDoInsert onInsert={onInsert} />
-                        <ToDoList todos={todos} onToggle={onToggle} />
+                        <ToDoList todos={todos} onToggle={onToggle} onRemove={onRemove}  onInsertToggle={onInsertToggle} onChangeSelectedTodo={onChangeSelectedTodo} />
                     </div>
                 </div>
+                {insertToggle && (<ToDoEdit onInsertToggle={onInsertToggle} onChangeSelectedTodo={onChangeSelectedTodo} onUpdate={onUpdate} selectedTodo={selectedTodo} />)}
             </div>
         </>
     )

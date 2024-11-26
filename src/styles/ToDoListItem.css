@@ -6,9 +6,6 @@
 }
 
 &.checked {
-    svg {
-        color: #9c88ff;
-    }
     .item-text {
         color: #adb5bd;
         text-decoration: line-through;
