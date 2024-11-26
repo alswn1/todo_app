@@ -6,7 +6,7 @@ function ToDoListItem({ todo, onToggle, onRemove, onInsertToggle, onChangeSelect
     const { _id, userId, content, isChecked, date } = todo;
 
     return (
-        <li className={!isChecked ? "list-item checked" : "list-item"}>
+        <li className={isChecked ? "list-item checked" : "list-item"}>
             <div className="item-inside" onClick={() => onToggle(_id)}>
                 {isChecked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
                 <div className="item-text">{content}</div>

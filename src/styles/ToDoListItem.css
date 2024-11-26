@@ -5,11 +5,13 @@
     gap: 15px;
 }
 
-&.checked {
-    .item-text {
-        color: #adb5bd;
-        text-decoration: line-through;
-    }
+.list-item.checked .item-inside svg {
+    color: #adb5bd;
+}
+
+.list-item.checked .item-inside .item-text {
+    color: #adb5bd;
+    text-decoration: line-through;
 }
 
 .item-inside {
