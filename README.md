@@ -7,7 +7,7 @@
 ## 개요
   - 프로젝트 이름 : Schedule My Day
   - 개발기간 : 24.11.20 ~ 24.11.26
-  - 기술스택 : React & MongoDV & Express
+  - 기술스택 : React & MongoDB & Express
   - 개발자 : 권민주
 
 ## 설명
