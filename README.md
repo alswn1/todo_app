@@ -5,6 +5,10 @@
 4. todo_list 완료 못하면 일자에 색 표시
 5. todo_list 모두 완료하면 일자에 색 표시 삭제
 6. 다크모드
+   
+![image](https://github.com/user-attachments/assets/61adbd1f-cc08-424f-a27c-5433539511f2)
+
+
 
 # Getting Started with Create React App
 
