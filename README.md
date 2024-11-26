@@ -40,5 +40,5 @@
 
 
 ###### 실행방법
-1. npm start
-2. node server.js
+###### 1. npm start
+###### 2. node server.js
