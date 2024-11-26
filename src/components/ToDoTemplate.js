@@ -56,6 +56,24 @@ function ToDoTemplate() {
         }
     };
 
+    // onInsert 함수 : 일정을 추가시키는 함수
+    const onInsert = (content) => {
+        const todo = {
+            userId:"alswn5790",
+            content,
+            isChecked: false,
+            date: selDate.slice(0, 10),
+        };
+
+        axios.post(`http://localhost:5000/todos/`, todo)
+            .then(res => {
+                setTodos([...todos, res.data]);
+            })
+            .catch(err => {
+                console.error("There was an error inserting the todo: ", err);
+            });
+    };
+
     return (
         <>
             <div className="left-container">
@@ -70,7 +88,7 @@ function ToDoTemplate() {
                 <div className="list">
                     <p className="list-title">My Schedule</p>
                     <div className="list-body">
-                        <ToDoInsert />
+                        <ToDoInsert onInsert={onInsert} />
                         <ToDoList todos={todos} onToggle={onToggle} />
                     </div>
                 </div>

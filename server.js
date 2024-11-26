@@ -17,7 +17,7 @@ app.use(cors());
 const todoSchema = new mongoose.Schema({
   userId: {type:String, required: true},
   content: { type: String, required: true },
-  isChecked: { type: Boolean, required: true, default: true },
+  isChecked: { type: Boolean, required: true, default: false },
   date: { type: String, required: true },
 });
 
@@ -39,13 +39,12 @@ app.get('/todos', async (req, res) => {
 
 // 2. **POST** 새로운 TODO 항목 추가
 app.post('/todos', async (req, res) => {
-  const { id, userId, content, isChecked, date } = req.body;
+  const { content, date } = req.body;
 
   const newTodo = new TODO({
-    id,
-    userId,
+    userId: "alswn5790",
     content,
-    isChecked,
+    isChecked: false,
     date,
   });
 
